@@ -9,7 +9,11 @@ public class Email {
   private int mailboxCapacity;
   private String alternateEmail;
 
-  // TODO: 02.11.2021 Constructor to receive the first name and the last name
+  // Constructor to receive the first name and the last name
+  public Email(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
   // TODO: 02.11.2021 Ask for the department
 
