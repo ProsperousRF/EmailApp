@@ -4,24 +4,32 @@ import java.util.Scanner;
 
 /** @author Stanislav Rakitov */
 public class Email {
-  private String firstName;
-  private String lastName;
-  private String password;
-  private String department;
+  private final String firstName;
+  private final String lastName;
+  private final String password;
+  private final String department;
+  private String email;
+  private String companySuffix = "acme.com";
   private int mailboxCapacity;
   private String alternateEmail;
-  private int defaultPasswordLength = 8;
+  private final int defaultPasswordLength = 8;
 
   // Constructor to receive the first name and the last name
   public Email(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.department = askDepartment();
-    this.password = randomPassword(8);
+    this.password = randomPassword(defaultPasswordLength);
+    this.email = this.firstName.toLowerCase() + "."
+            + this.lastName.toLowerCase() + "@" +
+            this.department + "." + companySuffix;
+
+
 
     System.out.println("EMAIL CREATED: " + this.firstName + " " + this.lastName);
     System.out.println("Department: " + this.department);
     System.out.println("Your password is: " + this.password);
+    System.out.println("Your email is: " + this.email);
   }
 
   // Ask for the department
