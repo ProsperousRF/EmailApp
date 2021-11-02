@@ -29,10 +29,7 @@ public class Email {
             + "."
             + companySuffix;
 
-    System.out.println("EMAIL CREATED: " + this.firstName + " " + this.lastName);
-    System.out.println("Department: " + this.department);
     System.out.println("Your password is: " + this.password);
-    System.out.println("Your email is: " + this.email);
   }
 
   // Ask for the department
@@ -95,5 +92,17 @@ public class Email {
 
   public String getPassword() {
     return password;
+  }
+
+  @Override
+  public String toString() {
+    return "Email{" +
+            "firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", department='" + department + '\'' +
+            ", email='" + email + '\'' +
+            ", mailboxCapacity=" + mailboxCapacity +
+            ", alternateEmail='" + alternateEmail + '\'' +
+            '}';
   }
 }
