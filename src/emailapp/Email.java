@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class Email {
   private final String firstName;
   private final String lastName;
-  private final String password;
+  private String password;
   private final String department;
+  private final int defaultPasswordLength = 8;
   private String email;
   private String companySuffix = "acme.com";
-  private int mailboxCapacity;
+  private int mailboxCapacity = 500;
   private String alternateEmail;
-  private final int defaultPasswordLength = 8;
 
   // Constructor to receive the first name and the last name
   public Email(String firstName, String lastName) {
@@ -20,11 +20,14 @@ public class Email {
     this.lastName = lastName;
     this.department = askDepartment();
     this.password = randomPassword(defaultPasswordLength);
-    this.email = this.firstName.toLowerCase() + "."
-            + this.lastName.toLowerCase() + "@" +
-            this.department + "." + companySuffix;
-
-
+    this.email =
+        this.firstName.toLowerCase()
+            + "."
+            + this.lastName.toLowerCase()
+            + "@"
+            + this.department
+            + "."
+            + companySuffix;
 
     System.out.println("EMAIL CREATED: " + this.firstName + " " + this.lastName);
     System.out.println("Department: " + this.department);
@@ -35,15 +38,15 @@ public class Email {
   // Ask for the department
   private String askDepartment() {
     System.out.println(
-        "Department codes\n" +
-                "1 for Sales\n" +
-                "2 for Development\n" +
-                "3 for Accounting\n" +
-                "0 for none\n" +
-                "Enter department code");
+        "Department codes\n"
+            + "1 for Sales\n"
+            + "2 for Development\n"
+            + "3 for Accounting\n"
+            + "0 for none\n"
+            + "Enter department code");
     Scanner in = new Scanner(System.in);
     int depChoice = in.nextInt();
-    switch (depChoice){
+    switch (depChoice) {
       case 1:
         return "sales";
       case 2:
@@ -66,10 +69,19 @@ public class Email {
     return new String(password);
   }
 
-  // TODO: 02.11.2021 Set the mailbox capacity
+  // Set the mailbox capacity
+  public void setMailboxCapacity(int mailboxCapacity) {
+    this.mailboxCapacity = mailboxCapacity;
+  }
 
-  // TODO: 02.11.2021 Set the alternate email
+  // Set the alternate email
+  public void setAlternateEmail(String alternateEmail) {
+    this.alternateEmail = alternateEmail;
+  }
 
-  // TODO: 02.11.2021 Change the password
 
+  // Change the password
+  public void setPassword(String password) {
+    this.password = password;
+  }
 }
